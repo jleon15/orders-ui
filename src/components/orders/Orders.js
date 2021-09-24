@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 function Orders() {
-  const getOrders = () => axios.get("http://localhost:8080/api/orders");
+  const getOrderPage = () => axios.get("http://localhost:8080/api/orders");
 
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    getOrders().then((response) => {
-      setOrders(response.data);
+    getOrderPage().then((response) => {
+      setOrders(response.data.orders);
     });
   }, []);
 
